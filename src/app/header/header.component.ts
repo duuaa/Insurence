@@ -10,19 +10,19 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    window.onscroll = function () { 
-      "use strict";
-      if (document.body.scrollTop >= 1 ) {
-        document.getElementById('Header').classList.add("nav-colored");
-        document.getElementById('Header').classList.remove("nav-transparent");
-      } 
-      else {
-        document.getElementById('Header').classList.add("nav-transparent");
-        document.getElementById('Header').classList.remove("nav-colored");
-      }
-  };
+     
+    $(document).ready(function(){
+      $(window).scroll(function(){
+          if($(window).scrollTop() > $(window).height()){
+              $("#Header").css({"background-color":"#EBF5FB "});   
+          }
+          else{
+              $("#Header").css({"background-color":"rgb(253, 254, 254,.5 )"});
+          }
+  
+      })
+  });
 
-  }
-
+}
 
 }
